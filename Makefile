@@ -20,6 +20,7 @@ AllTarget = $(OutPath)/$(TargetFile).a
 include $(Ps4Sdk)/make/ps4sdk.mk
 
 IncludePath += -I$(Ps4Sdk)/include/SDL2 -I$(Ps4Sdk)/include
+CompilerFlags += -DVERSION=\"2.0.1\"
 
 $(OutPath)/$(TargetFile).a: $(ObjectFiles)
 	$(dirp)
@@ -28,5 +29,5 @@ $(OutPath)/$(TargetFile).a: $(ObjectFiles)
 install:
 	@cp $(OutPath)/$(TargetFile).a $(Ps4Sdk)/lib
 	@mkdir -p $(Ps4Sdk)/include/SDL2
-	@cp include/*.h $(Ps4Sdk)/include/SDL2
+	@cp include/SDL_net.h $(Ps4Sdk)/include/SDL2
 	@echo "Installed!"
